@@ -8,3 +8,5 @@ function showRes(num) {
     console.log(num);
 }
 showRes(+add(3, 32));
+var combinedValues = add;
+console.log(combinedValues(8, 8));
