@@ -1,14 +1,10 @@
-function combine(input1, input2) {
-    var result;
-    if (typeof input1 === 'number' && typeof input2 === 'number') {
-        result = input1 + input2;
-    }
-    else {
-        result = input1.toString() + input2.toString();
-    }
-    return result;
+function add(number1, number2) {
+    return (number1 + number2).toString();
 }
-var combinedAges = combine(30, 26);
-console.log(combinedAges);
-var combinedNames = combine("Anna", "Maria");
-console.log(combinedNames);
+var n1 = 3;
+var n2 = 34;
+console.log(add(n1, n2));
+function showRes(num) {
+    console.log(num);
+}
+showRes(+add(3, 32));
