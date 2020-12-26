@@ -3,5 +3,7 @@ function clickHandler(message: string) {
     console.log("clicked " + message);
 }
 if(button) {
-    button.addEventListener('click', clickHandler.bind(null,"message"));
+    button.addEventListener('click', clickHandler.bind(null,"message"));    
+    console.log("dfdsf");
+    console.log("dfdsf");
 }

@@ -5,5 +5,7 @@ function clickHandler(message) {
 }
 if (button) {
     button.addEventListener('click', clickHandler.bind(null, "message"));
+    console.log("dfdsf");
+    console.log("dfdsf");
 }
 //# sourceMappingURL=app.js.map
