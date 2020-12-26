@@ -1,11 +1,2 @@
-var userInput;
-var userName;
-userInput = 5;
-userInput = "Max";
-if (typeof userInput === 'string') {
-    userName = userInput;
-}
-function generateError(message, code) {
-    throw { message: message, errorcode: code };
-}
-generateError("An error occured!", 500);
+var userName = "Niki1";
+console.log(userName);
