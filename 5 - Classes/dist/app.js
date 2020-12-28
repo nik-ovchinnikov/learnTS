@@ -24,8 +24,32 @@ class IDDepartment extends Department {
     }
 }
 class AccountingDepartment extends Department {
-    constructor(id) {
+    constructor(id, reports) {
         super(id, "Accounting");
+        this.reports = reports;
+        this.lastReport = reports[0];
+    }
+    get mostRecentReport() {
+        if (this.lastReport) {
+            return this.lastReport;
+        }
+        throw new Error("no last report was found");
+    }
+    set mostRecentReport(value) {
+        if (!value) {
+            throw new Error("please enter valid value");
+        }
+        this.addReport(value);
+    }
+    addEmployee(name) {
+        if (name === "Max") {
+            return;
+        }
+        this.employees.push(name);
+    }
+    addReport(text) {
+        this.reports.push(text);
+        this.lastReport = text;
     }
 }
 const accounting = new IDDepartment("13", ["Accounting"]);
