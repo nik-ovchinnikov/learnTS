@@ -1,9 +1,10 @@
-// let example = 34;
-//ваыаыв
+class Department {
+    name: string;
 
-
-function showVar() {
-    let example = "вавыавыва";
-    console.log(example);
+    constructor(n: string) {
+       this.name = n; 
+    }
 }
-showVar();
+
+const accounting = new Department("Accounting");
+console.log(accounting);

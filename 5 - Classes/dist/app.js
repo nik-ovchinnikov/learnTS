@@ -1,9 +1,9 @@
 "use strict";
-// let example = 34;
-//ваыаыв
-function showVar() {
-    let example = "вавыавыва";
-    console.log(example);
+class Department {
+    constructor(n) {
+        this.name = n;
+    }
 }
-showVar();
+const accounting = new Department("Accounting");
+console.log(accounting);
 //# sourceMappingURL=app.js.map
