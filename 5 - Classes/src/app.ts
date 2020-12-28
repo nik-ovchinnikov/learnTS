@@ -6,6 +6,7 @@ interface AddFn {
 
 interface Named {
     readonly name: string;
+    outputName?: string; // ? показывает что необязательное поля для наследников, можно и в конструкторе
 }
 
 interface Greetable extends Named{
