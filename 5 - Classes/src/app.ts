@@ -1,4 +1,4 @@
-class Department {
+abstract class Department {
 
     public readonly name: string;
     protected employees: string[] = [];//now there is no access to rhis field from outside
@@ -8,9 +8,11 @@ class Department {
        this.name = n; 
     }
 
-    describe(this: Department ) {
-        console.log('Department: ' + this.name + this.id);
+    static createEmployee(name: string) {
+        return { name: name};
     }
+
+    abstract describe(this: Department ): void;
 
     addEmployee(employee: string) {
         this.employees.push(employee);
@@ -26,6 +28,12 @@ class Department {
 class IDDepartment extends Department {
     constructor(id: string, public admins: string[]) {
         super(id, 'IT');
+    }
+
+    describe() {
+        console.log(
+            "description"
+        );
     }
 }
 
@@ -61,6 +69,27 @@ class AccountingDepartment extends Department {
     addReport(text: string) {
         this.reports.push(text);
         this.lastReport = text;
+    }
+
+    describe() {
+
+    }
+}
+
+//for singletons and private constructors
+
+class TechnicalDepartment {
+    private static instance: TechnicalDepartment;
+    private constructor(private id: string) {
+
+    }
+
+    static getInstance() {
+        if(TechnicalDepartment.instance) {
+            return this.instance;
+        } 
+        this.instance = new TechnicalDepartment("3d2s");
+        return this.instance;
     }
 }
 

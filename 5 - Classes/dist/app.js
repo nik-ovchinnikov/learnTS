@@ -6,6 +6,9 @@ class Department {
         //id не надо нигде объявлять
         this.name = n;
     }
+    static createEmployee(name) {
+        return { name: name };
+    }
     describe() {
         console.log('Department: ' + this.name + this.id);
     }
