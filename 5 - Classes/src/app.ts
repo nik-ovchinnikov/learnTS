@@ -1,13 +1,15 @@
 class Department {
-    public name: string;
+
+    public readonly name: string;
     private employees: string[] = [];//now there is no access to rhis field from outside
 
-    constructor(n: string) {
+    constructor(private id: number, n: string) {
+        //id не надо нигде объявлять
        this.name = n; 
     }
 
     describe(this: Department ) {
-        console.log('Department: ' + this.name);
+        console.log('Department: ' + this.name + this.id);
     }
 
     addEmployee(employee: string) {
@@ -20,9 +22,11 @@ class Department {
     }
 }
 
-const accounting = new Department("Accounting");
+const accounting = new Department(13, "Accounting");
 
 accounting.addEmployee("Max");
 accounting.addEmployee("Manu");
 
 accounting.printEmployeeInformation();
+
+accounting.describe();
