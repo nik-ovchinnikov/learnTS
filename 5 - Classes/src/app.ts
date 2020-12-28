@@ -1,9 +1,9 @@
 class Department {
 
     public readonly name: string;
-    private employees: string[] = [];//now there is no access to rhis field from outside
+    protected employees: string[] = [];//now there is no access to rhis field from outside
 
-    constructor(private id: number, n: string) {
+    constructor(private id: string, n: string) {
         //id не надо нигде объявлять
        this.name = n; 
     }
@@ -22,7 +22,27 @@ class Department {
     }
 }
 
-const accounting = new Department(13, "Accounting");
+
+class IDDepartment extends Department {
+    constructor(id: string, public admins: string[]) {
+        super(id, 'IT');
+    }
+}
+
+class AccountingDepartment extends Department {
+    constructor(id: string, private reports: string[]) {
+        super(id, "Accounting");
+    }
+
+    addEmployee(name: string){
+        if(name === "Max") {
+            return;
+        }
+        this.employees.push(name);
+    }
+}
+
+const accounting = new IDDepartment("13", ["Accounting"]);
 
 accounting.addEmployee("Max");
 accounting.addEmployee("Manu");
